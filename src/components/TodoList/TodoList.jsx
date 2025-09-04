@@ -1,7 +1,11 @@
-import styles from './TodoList.module.css';
+import TodoItem from '../TodoItem/TodoItem';
 
-function TodoList(){
-    return <h1 className={styles.h1}>TodoList</h1>
+function TodoList({ todos }) {
+  return (
+    <ul>
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+    </ul>
+  );
 }
 
 export default TodoList;

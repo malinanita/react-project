@@ -1,6 +1,9 @@
-import styles from './TodoItem.module.css';
-function TodoItem(){
-    return <h1 className={styles.h1}>TodoItem</h1>
+function TodoItem({ todo }) {
+  return (
+    <li>
+      {todo.text} {todo.completed ? '(done)' : ''}
+    </li>
+  );
 }
 
 export default TodoItem;
