@@ -1,4 +1,43 @@
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  max-width: 500px;
+  margin: 0 auto 8px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.listItem:hover {
+  transform: scale(1.02);
+}
+
+.listItemCompleted {
+  background-color: #e0e0e0;
+}
+
+.todoText {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.textCompleted {
+  text-decoration: line-through;
+  color: #999;
+}
 
 .deleteButton {
-    background-color: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #e74c3c;
+  transition: color 0.2s ease;
+}
+
+.deleteButton:hover {
+  color: #c0392b;
 }

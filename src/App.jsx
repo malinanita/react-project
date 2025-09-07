@@ -26,14 +26,13 @@ function App() {
   };
 
   const deleteTodo = (id) => {
-    console.log('deleteTodo called with id:', id);
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>My Todo App</h1>
+      <h1 className={styles.title}>My To-do App</h1>
       <AddTodoForm addTodo={addTodo} />
       <TodoList 
         todos={todos} 
