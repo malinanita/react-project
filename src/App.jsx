@@ -1,4 +1,4 @@
-import './App.css'
+import styles from './App.module.css'
 import React, { useState } from 'react';
 import AddTodoForm from './components/AddToDoForm/AddToDoForm';
 import TodoList from './components/TodoList/TodoList';
@@ -10,14 +10,18 @@ function App() {
     { id: 2, text: 'Second todo', completed: false }
   ]);
 
-  return (
-    <div>
-      <h1>My Todo App</h1>
-      
-      {/* Form for future functionality */}
-      <AddTodoForm />
+  // Function for adding new to-do
+  const addTodo = (text) => {
+    const newTodo = { id: Date.now(), text, completed: false };
+      setTodos([...todos, newTodo]);
+  };
 
-      {/* List with to-dos */}
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>My Todo App</h1>
+      
+      <AddTodoForm addTodo={addTodo} />
+
       <TodoList todos={todos}/>
     </div>
   );
