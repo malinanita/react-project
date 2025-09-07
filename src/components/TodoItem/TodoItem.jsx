@@ -1,5 +1,6 @@
+import styles from './TodoItem.module.css';
 
-function TodoItem({ todo, toggleTodo }) {
+function TodoItem({ todo, toggleTodo, deleteTodo }) {
   return (
     <li>
       <input 
@@ -10,6 +11,11 @@ function TodoItem({ todo, toggleTodo }) {
       <span style ={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
         {todo.text}
       </span>
+      <button className={styles.deleteButton} onClick={() => deleteTodo(todo.id)}
+        aria-label={`Delete ${todo.text}`}
+        title="Delete">
+        ❌
+      </button>
     </li>
   );
 }
