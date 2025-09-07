@@ -1,8 +1,15 @@
 
-function TodoItem({ todo }) {
+function TodoItem({ todo, toggleTodo }) {
   return (
     <li>
-      {todo.text} {todo.completed ? '(done)' : ''}
+      <input 
+        type="checkbox"
+        checked={todo.completed}
+        onChange={() => toggleTodo(todo.id)}
+      />
+      <span style ={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
+        {todo.text}
+      </span>
     </li>
   );
 }
