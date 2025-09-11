@@ -1,12 +1,20 @@
 import styles from './App.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddTodoForm from './components/AddToDoForm/AddToDoForm';
 import TodoList from './components/TodoList/TodoList';
 
 
 function App() {
   // Empty list
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
 
   // Add new to-do
   const addTodo = (text) => {
@@ -32,10 +40,9 @@ function App() {
     <div className={styles.container}>
         <h1 className={styles.title}>My To-do App</h1>
         <AddTodoForm addTodo={addTodo} />
-
-      {todos.length === 0 ? (
-          <p className={styles.emptyState}>No tasks yet – add your first one!</p>
-      ) : (
+        {todos.length === 0 ? (
+            <p className={styles.emptyState}>No tasks yet – add your first one!</p>
+        ) : (
         <TodoList 
           todos={todos} 
           toggleTodo={toggleTodo} 
