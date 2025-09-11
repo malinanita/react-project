@@ -5,12 +5,10 @@ import TodoList from './components/TodoList/TodoList';
 
 
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'First todo', completed: false },
-    { id: 2, text: 'Second todo', completed: false }
-  ]);
+  // Empty list
+  const [todos, setTodos] = useState([]);
 
-  // Adding new to-do
+  // Add new to-do
   const addTodo = (text) => {
     const newTodo = { id: Date.now(), text, completed: false };
       setTodos([...todos, newTodo]);
@@ -32,13 +30,18 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>My To-do App</h1>
-      <AddTodoForm addTodo={addTodo} />
-      <TodoList 
-        todos={todos} 
-        toggleTodo={toggleTodo} 
-        deleteTodo={deleteTodo}
-      />
+        <h1 className={styles.title}>My To-do App</h1>
+        <AddTodoForm addTodo={addTodo} />
+
+      {todos.length === 0 ? (
+          <p className={styles.emptyState}>No tasks yet – add your first one!</p>
+      ) : (
+        <TodoList 
+          todos={todos} 
+          toggleTodo={toggleTodo} 
+          deleteTodo={deleteTodo}
+        />
+      )}
     </div>
   );
 }

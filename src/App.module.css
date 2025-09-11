@@ -14,3 +14,11 @@
   font-weight: 100;
   color: #000000;
 } 
+
+.emptyState {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  padding: 1.5em 0 1em;
+}
