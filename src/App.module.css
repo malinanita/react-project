@@ -1,24 +1,59 @@
 .container {
+  position: relative;
   max-width: 500px;
   margin: 2em auto;
   padding: 1.5em;
   font-family: Arial, sans-serif;
-  background-color:rgb(240, 240, 240);
+  background-color:rgb(255, 244, 235);
   border-radius: 8px;
 }
 
 .title {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  font-weight: 100;
+  text-align: left;
+  font-size: 1.25rem;
+  margin-left: 3rem;
+  margin-bottom: 0;
+  font-weight: bold;
   color: #000000;
 } 
 
+.date {
+  font-size: 14px;
+  color: #c97200;
+  margin: 0.5rem 0 1.5rem 3rem;
+  font-weight: bold;
+}
+
 .emptyState {
-  color: rgb(163, 163, 163);
+  color: rgb(0, 0, 0);
   font-size: 14px;
   display: flex;
   justify-content: center;
-  padding: 1.5em 0 1em;
+  margin-bottom: 0.5em;
+  padding: 1em 0 0 1em;
+  font-style: italic;
 }
+
+.addButton {
+  position: absolute;      
+  bottom: 20px;          
+  right: 20px;           
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight:lighter;
+  padding: 0;
+  border-radius: 50% 50% 50% 2%;
+  border: none;
+  background-color: #f49d34;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.addButton:hover {
+  background-color: #c36201;
+  transform: scale(1.1);
+}
+
